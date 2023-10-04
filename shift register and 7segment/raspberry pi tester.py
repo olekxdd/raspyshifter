@@ -16,9 +16,9 @@ from time import sleep
 # Outputs:
 # VCC 5V(pin2)
 # GND (Pin6)
-# DS (4)
-# SHCP (23)
-# STCP (24)
+# DS (gpio4)
+# SHCP (gpio23)
+# STCP (gpio24)
 # OE into GND
 
 # if SHCP is high, a low is safed in the buffer
@@ -55,7 +55,7 @@ def segmenter1(num):
     else:
         print("number must be between 0-9")
 
-segmenter1()
+segmenter1(num)
 
 def data_processor(data):
 #    if len(data) > 6
@@ -75,4 +75,5 @@ def data_processor(data):
             stcp_outputter.value(0)
             print("null")
 
-hi
+
+pause()

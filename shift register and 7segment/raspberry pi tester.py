@@ -44,7 +44,6 @@ def data_processor(data=(segmenter()), single_byte=None):
                 stcp_outputter.value(1)
                 stcp_outputter.value(0)
                 print("null")
-                sleep(0.5)
             else:
                 shcp_inst_shifter.value(1)
                 shcp_inst_shifter.value(0)

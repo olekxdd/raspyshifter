@@ -109,13 +109,12 @@ from time import sleep
 # #     else:
 # #         print("number must be between 0-9")
 
-#ds_data = gpiozero.GPIODevice(4, pin_factory=None)
+# ds_data = gpiozero.GPIODevice(4, pin_factory=None)
 # shcp_inst_shifter = gpiozero.GPIODevice(26, pin_factory=None)
-#stcp_outputter = gpiozero.GPIODevice(24, pin_factory=None)
+# stcp_outputter = gpiozero.GPIODevice(24, pin_factory=None)
 
 
-
-#--------------------------------------------------------------
+# --------------------------------------------------------------
 
 # import gpiozero
 # from gpiozero import LED, output_devices
@@ -176,21 +175,73 @@ import time
 from gpiozero import DigitalOutputDevice
 from gpiozero import LED, output_devices
 from time import sleep
+
 led = 26
 
+# led_pin = DigitalOutputDevice(led)
+#
+# led_pin.on()
+# sleep(1)
+# led_pin.off()
+# sleep(1)
+#
+# led_pin.on()
+# sleep(1)
+# led_pin.off()
+# sleep(1)
+# led_pin.on()
+# sleep(1)
+# led_pin.off()
+# sleep(1)
 
-led_pin = DigitalOutputDevice(led)
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
+                "10000000", "10010000"]
 
-led_pin.on()
-sleep(1)
-led_pin.off()
-sleep(1)
+numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
+                7: "11111000", 8: "10000000", 9: "10010000"}
 
-led_pin.on()
-sleep(1)
-led_pin.off()
-sleep(1)
-led_pin.on()
-sleep(1)
-led_pin.off()
-sleep(1)
+
+# work with the dictinor, you can make the segmenter easier
+
+
+# def segmenter(count=None):
+#     num = int(input("input a number between 0-9: "))
+#     if num == numbers[num]:
+#         numbers[num] = int(numbers_byte[num])
+#         data = numbers[num]
+#         print(numbers[num])
+#         return data
+#     else:
+#         while count <= 5:
+#             numbers[num] = 1
+#             sleep(0.5)
+#             numbers[num] = 0
+#             sleep(0.5)
+#             count += 1
+#             print("number must be between 0-9")
+#     return numbers[num]
+#
+#
+# data = str(segmenter())
+#
+# print(data)
+
+def segmenter():
+    num = int(input("Input a number between 0-9: "))
+    if num in numbers:
+        data = int(numbers_byte[num], 2)
+        print(numbers_byte[num])
+        return data
+    else:
+        count = 0
+        while count < 5:
+            numbers[num] = 1
+            sleep(0.5)
+            numbers[num] = 0
+            sleep(0.5)
+            count += 1
+            print("number must be between 0-9")
+    return numbers[num]
+
+segmenter()

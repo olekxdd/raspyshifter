@@ -69,7 +69,7 @@ data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
 
-#oe_pin.pull_up()
+# oe_pin.pull_up()
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]
@@ -161,9 +161,8 @@ data_segmented = str(segmenter())
 #             stcp_pin.off()
 
 def data_processor(data_segmented):
-    for segment in data_segmented:
-        really_segmented_now = data_segmented
-        if really_segmented_now[segment] == "1":
+    for i in range(0, 8):
+        if data_segmented[i] == "1":
             data_pin.on()
             sleep(0.01)
             shcp_pin.on()

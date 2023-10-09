@@ -162,7 +162,7 @@ data_segmented = str(segmenter())
 
 def data_processor(data_segmented):
     for i in range(0, len(data_segmented)):
-        sleep_length = 0.1
+        sleep_length = 0.5
         if data_segmented[i] == "1":
             data_pin.on()
             sleep(sleep_length)
@@ -176,7 +176,7 @@ def data_processor(data_segmented):
             data_pin.off()
             shcp_pin.off()
 
-    stcp_pin.on()
-    stcp_pin.off()
+stcp_pin.on()
+stcp_pin.off()
 
 data_processor(data_segmented)

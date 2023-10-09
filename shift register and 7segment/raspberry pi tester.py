@@ -125,7 +125,7 @@ numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "
 def segmenter():
     num = int(input("Input a number between 0-9: "))
     if num in numbers:
-        data = int(numbers_byte[num], 2)
+        data = int(numbers_byte[num])
         return data
     else:
         count = 0

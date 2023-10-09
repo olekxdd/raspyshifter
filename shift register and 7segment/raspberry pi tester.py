@@ -174,6 +174,7 @@ def data_processor(data_segmented):
             data_pin.off()
             sleep(sleep_length)
             stcp_pin.on()
+            sleep(sleep_length)
             stcp_pin.off()
         else:
             data_pin.off()
@@ -181,6 +182,7 @@ def data_processor(data_segmented):
             shcp_pin.off()
             sleep(sleep_length)
             stcp_pin.on()
+            sleep(sleep_length)
             stcp_pin.off()
 
 

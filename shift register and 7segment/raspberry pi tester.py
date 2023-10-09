@@ -55,25 +55,26 @@
 
 # import RPi.GPIO as GPIO
 import time
-from gpiozero import DigitalOutputDevice
+from gpiozero import DigitalOutputDevice, DigitalInputDevice
 from gpiozero import LED, output_devices
 from time import sleep
-
-numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
-                "10000000", "10010000"]
-
-numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
-                7: "11111000", 8: "10000000", 9: "10010000"}
-# work with the dict, you can make the segmenter easier
 
 ds_data = 4
 shcp_inst_shifter = 23
 stcp_outputter = 24
+oe_pullup = 26
 
+oe_pin = DigitalInputDevice(oe_pullup)
 data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
+
+oe_pin.pull_up()
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
+                "10000000", "10010000"]
+numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
+                7: "11111000", 8: "10000000", 9: "10010000"}
 
 
 # def segmenter():
@@ -125,7 +126,6 @@ def segmenter():
     num = int(input("Input a number between 0-9: "))
     if num in numbers:
         data = int(numbers_byte[num], 2)
-
         return data
     else:
         count = 0
@@ -142,10 +142,29 @@ def segmenter():
 data_segmented = str(segmenter())
 
 
+# def data_processor(data_segmented):
+#     for i in data_segmented:
+#
+#         if i == "1":
+#             data_pin.on()
+#             sleep(0.01)
+#             shcp_pin.on()
+#             shcp_pin.off()
+#             data_pin.off()
+#             stcp_pin.on()
+#             stcp_pin.off()
+#             print(str(data_segmented))
+#         else:
+#             data_pin.off()
+#             shcp_pin.off()
+#             stcp_pin.on()
+#             stcp_pin.off()
+
 def data_processor(data_segmented):
     for i in data_segmented:
-        if i == "1":
+        if data_segmented[i] == "1":
             data_pin.on()
+            sleep(0.01)
             shcp_pin.on()
             shcp_pin.off()
             data_pin.off()
@@ -153,12 +172,10 @@ def data_processor(data_segmented):
             stcp_pin.off()
             print(str(data_segmented))
         else:
-            shcp_pin.off()
             data_pin.off()
+            shcp_pin.off()
             stcp_pin.on()
             stcp_pin.off()
-            stcp_pin.toggle()
-            print("null")
 
 
 data_processor(data_segmented)

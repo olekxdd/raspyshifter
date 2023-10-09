@@ -69,7 +69,7 @@ data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
 
-oe_pin.pull_up()
+#oe_pin.pull_up()
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]

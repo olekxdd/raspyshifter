@@ -163,7 +163,6 @@ data_segmented = str(segmenter())
 def data_processor(data_segmented):
     for i in range(0, len(data_segmented)):
         sleep_length = 0.1
-        sleep(sleep_length)
         if data_segmented[i] == "1":
             data_pin.on()
             sleep(sleep_length)

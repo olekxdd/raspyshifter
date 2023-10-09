@@ -162,7 +162,7 @@ data_segmented = str(segmenter())
 
 def data_processor(data_segmented):
     for i in data_segmented:
-        if data_segmented[i] == "1":
+        if data_segmented[i] == 1:
             data_pin.on()
             sleep(0.01)
             shcp_pin.on()

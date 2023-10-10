@@ -77,49 +77,36 @@ numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "
                 7: "11111000", 8: "10000000", 9: "10010000"}
 
 
-# def segmenter():
-#     num = int(input("Input a number between 0-9: "))
-#     if num in numbers:
-#         data = int(numbers_byte[num], 2)
-#         print(numbers_byte[num])
-#         return data
-#     else:
-#         count = 0
-#         while count < 5:
-#             numbers[num] = 1
-#             sleep(0.5)
-#             numbers[num] = 0
-#             sleep(0.5)
-#             count += 1
-#             print("number must be between 0-9")
-#     return numbers[num]
-#
-#
-# data = segmenter()
-#
-#
-# def data_processor(data, single_byte=None):
-#     for i in data:
-#         data[i] = single_byte
-#         for j in single_byte:
-#             if single_byte[j] == 1:
-#                 data_pin.on()
-#                 shcp_pin.on()
-#                 shcp_pin.off()
-#                 data_pin.off()
-#                 stcp_pin.on()
-#                 stcp_pin.off()
-#                 print(str(data))
-#             else:
-#                 shcp_pin.off()
-#                 data_pin.off()
-#                 stcp_pin.on()
-#                 stcp_pin.off()
-#                 stcp_pin.toggle()
-#                 print("null")
-#
-#
-# data_processor(data)
+sleep_length = 0.2
+
+
+def high_bit(sleep_length):
+    data_pin.on()
+    sleep(sleep_length)
+    shcp_pin.on()
+    sleep(sleep_length)
+    shcp_pin.off()
+    sleep(sleep_length)
+    data_pin.off()
+    sleep(sleep_length)
+    stcp_pin.on()
+    sleep(sleep_length)
+    stcp_pin.off()
+
+
+def low_bit(sleep_length):
+    data_pin.off()
+    sleep(sleep_length)
+    shcp_pin.off()
+    sleep(sleep_length)
+    shcp_pin.on()
+    sleep(sleep_length)
+    shcp_pin.off()
+    sleep(sleep_length)
+    stcp_pin.on()
+    sleep(sleep_length)
+    stcp_pin.off()
+
 
 
 def segmenter():
@@ -142,37 +129,45 @@ def segmenter():
 data_segmented = str(segmenter())
 
 
-def data_processor(data_segmented):
+def data_processor_led7_segment(data_segmented, sleep_length):
     for i in range(0, len(data_segmented)):
-        sleep_length = 0.5
         sleep(sleep_length)
         if data_segmented[i] == "1":
-            data_pin.on()
-            sleep(sleep_length)
-            shcp_pin.on()
-            sleep(sleep_length)
-            shcp_pin.off()
-            sleep(sleep_length)
-            data_pin.off()
-            sleep(sleep_length)
-            stcp_pin.on()
-            sleep(sleep_length)
-            stcp_pin.off()
+            high_bit(sleep_length)
         else:
-            data_pin.off()
-            sleep(sleep_length)
-            shcp_pin.off()
-            sleep(sleep_length)
-            shcp_pin.on()
-            sleep(sleep_length)
-            shcp_pin.off()
-            sleep(sleep_length)
-            stcp_pin.on()
-            sleep(sleep_length)
-            stcp_pin.off()
+            low_bit(sleep_length)
+
+# def wave_led():
+#     while True:
+#
+#         if data_segmented[i] == "1":
+#             data_pin.on()
+#             sleep(sleep_length)
+#             shcp_pin.on()
+#             sleep(sleep_length)
+#             shcp_pin.off()
+#             sleep(sleep_length)
+#             data_pin.off()
+#             sleep(sleep_length)
+#             stcp_pin.on()
+#             sleep(sleep_length)
+#             stcp_pin.off()
+#         else:
+#             data_pin.off()
+#             sleep(sleep_length)
+#             shcp_pin.off()
+#             sleep(sleep_length)
+#             shcp_pin.on()
+#             sleep(sleep_length)
+#             shcp_pin.off()
+#             sleep(sleep_length)
+#             stcp_pin.on()
+#             sleep(sleep_length)
+#             stcp_pin.off()
 
 
-data_processor(data_segmented)
+
+data_processor_led7_segment(data_segmented, sleep_length)
 
 
 

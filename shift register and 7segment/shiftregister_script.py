@@ -75,7 +75,6 @@ def low_bit(sleep_length):
 #         else:
 #             low_bit(sleep_length)
 
-
 def costum_led_pattern():
     while True:
         costum_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 8 entries): ")
@@ -156,7 +155,6 @@ def newton_pendle(newton_pendle_16bit):
                     low_bit(sleep_length)
 
 
-
 def wave_drop(wave_drop_16bit):
     sleep_length = 0.001
     while True:
@@ -169,8 +167,8 @@ def wave_drop(wave_drop_16bit):
                     low_bit(sleep_length)
 
 
-# data_processor_led7_segment(data_segmented, sleep_length)
-# costum_led_pattern()
-# random_led_static()
-newton_pendle(newton_pendle_16bit)
-#wave_drop(wave_drop_16bit)
+def led_mode():
+    print(f"1:costum_led_pattern \n2:wave_led\n 3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
+    question = input("which led mode do you want?: ")
+
+led_mode()

@@ -95,7 +95,7 @@ def costum_led_pattern():
 
 def wave_led():
     x = 0
-    while x < 10:
+    while x < 200:
         high_bit(sleep_length)
         low_bit(sleep_length)
         x += 1

@@ -154,4 +154,5 @@ def drop_wave(wave_drop_16bit):
 
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()
-random_led_static()
+# random_led_static()
+drop_wave(wave_drop_16bit)

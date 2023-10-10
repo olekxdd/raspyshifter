@@ -19,7 +19,7 @@ numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "
                 7: "11111000", 8: "10000000", 9: "10010000"}
 wave_drop = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
                 "10000000", "10010000"]
-sleep_length = int(input("input the sleep length: "))
+sleep_length = float(input("input the sleep length: "))
 
 
 def high_bit(sleep_length):

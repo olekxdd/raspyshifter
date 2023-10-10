@@ -1,6 +1,7 @@
 from gpiozero import DigitalOutputDevice, DigitalInputDevice
 from gpiozero import LED, output_devices
 from time import sleep
+import random
 
 ds_data = 18
 stcp_outputter = 15
@@ -18,7 +19,7 @@ numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "
                 7: "11111000", 8: "10000000", 9: "10010000"}
 
 wave_drop = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
-                "10000000", "10010000"]
+             "10000000", "10010000"]
 
 sleep_length = float(input("input the sleep length: "))
 
@@ -105,7 +106,18 @@ def laser_led():
         x += 1
 
 
+def random_led():
+    n = random.randint(0, 1)
+    x = 0
+    while x < 200:
+        if n == 1:
+            high_bit(sleep_length)
+            x += 1
+        else:
+            low_bit(sleep_length)
+            x += 1
+
 
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()
-laser_led()
+random_led()

@@ -114,6 +114,7 @@ def random_led():
         n = random.randint(0, 1)
         if byte_amt == 16:
             sleep(1)
+            byte_amt = 0
         if n == 1:
             high_bit(sleep_length)
             x += 1

@@ -120,11 +120,11 @@ def random_led_shifter():
 
 
 def random_led_static():
-    stop_timer = 0.5
+    stop_timer = 1
     x = 0
     byte_amt = 0
     sleep_length = 0.001
-    while x < 200:
+    while x < 1000:
         n = random.randint(0, 1)
         if byte_amt == 16:
             sleep(stop_timer)

@@ -110,6 +110,7 @@ def random_led():
     n = random.randint(0, 1)
     x = 0
     while x < 200:
+        print(n)
         if n == 1:
             high_bit(sleep_length)
             x += 1

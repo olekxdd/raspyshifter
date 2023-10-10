@@ -21,8 +21,10 @@ numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "
 wave_drop_8bit = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
              "10000000", "10010000"]
 
-wave_drop_16bit = ["0000000110000000", "0000001001000000", "0000010000100000", "0000100000010000", "0001000000001000", "0010000000000100", "0100000000000010", "1000000000000001",
+newton_pendle_16bit = ["0000000110000000", "0000001001000000", "0000010000100000", "0000100000010000", "0001000000001000", "0010000000000100", "0100000000000010", "1000000000000001",
              "0100000000000010", "0010000000000100", "0001000000001000", "0000100000010000", "0000010000100000", "0000001001000000"]
+
+wave_drop_16bit = ["0000000110000000", "0001100110011000", "1100110110110011", "0001100110011000", "0001100110011000", "0000000110000000"]
 
 sleep_length = float(input("input the sleep length: "))
 
@@ -142,7 +144,20 @@ def random_led_static():
             byte_amt += 1
 
 
-def drop_wave(wave_drop_16bit):
+def newton_pendle(newton_pendle_16bit):
+    sleep_length = 0.0001
+    while True:
+        for i in newton_pendle_16bit:
+            sleep(0.05)
+            for digit in i:
+                if digit == "1":
+                    high_bit(sleep_length)
+                else:
+                    low_bit(sleep_length)
+
+
+
+def wave_drop(wave_drop_16bit):
     sleep_length = 0.0001
     while True:
         for i in wave_drop_16bit:
@@ -157,4 +172,5 @@ def drop_wave(wave_drop_16bit):
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()
 # random_led_static()
-drop_wave(wave_drop_16bit)
+# newton_pendle(wave_drop_16bit)
+wave_drop(wave_drop_16bit)

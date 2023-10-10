@@ -124,7 +124,7 @@ def segmenter():
         return numbers[num]
 
 
-data_segmented = str(segmenter())
+
 
 
 def data_processor_led7_segment(data_segmented, sleep_length):
@@ -150,6 +150,6 @@ def costum_led_pattern():
         else:
             print("your input hast to be 8 objects long e.g: '10101010' ")
 
-
+# data_segmented = str(segmenter())
 # data_processor_led7_segment(data_segmented, sleep_length)
 costum_led_pattern()

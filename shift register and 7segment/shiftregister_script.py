@@ -148,7 +148,7 @@ def newton_pendle(newton_pendle_16bit):
     sleep_length = 0.0001
     while True:
         for i in newton_pendle_16bit:
-            sleep(0.5)
+            sleep(0.2)
             for digit in i:
                 if digit == "1":
                     high_bit(sleep_length)
@@ -172,5 +172,5 @@ def wave_drop(wave_drop_16bit):
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()
 # random_led_static()
-newton_pendle(wave_drop_16bit)
+newton_pendle(newton_pendle_16bit)
 #wave_drop(wave_drop_16bit)

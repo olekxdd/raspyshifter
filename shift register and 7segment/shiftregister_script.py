@@ -108,6 +108,7 @@ def laser_led():
 
 def random_led():
     x = 0
+    sleep_length = 0.001
     while x < 200:
         n = random.randint(0, 1)
         print(n)

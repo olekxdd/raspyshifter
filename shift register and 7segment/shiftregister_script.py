@@ -123,7 +123,7 @@ def random_led_static():
     stop_timer = 1
     x = 0
     byte_amt = 0
-    sleep_length = 0.001
+    sleep_length = 0.0001
     while x < 1000:
         n = random.randint(0, 1)
         if byte_amt == 16:

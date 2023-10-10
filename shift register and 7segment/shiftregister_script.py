@@ -2,10 +2,9 @@ from gpiozero import DigitalOutputDevice, DigitalInputDevice
 from gpiozero import LED, output_devices
 from time import sleep
 
-ds_data = 4
+ds_data = 24
 shcp_inst_shifter = 23
-stcp_outputter = 24
-oe_pullup = 26
+stcp_outputter = 4
 
 oe_pin = DigitalInputDevice(oe_pullup)
 data_pin = DigitalOutputDevice(ds_data)

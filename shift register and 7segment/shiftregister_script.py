@@ -172,5 +172,5 @@ def wave_drop(wave_drop_16bit):
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()
 # random_led_static()
-# newton_pendle(wave_drop_16bit)
-wave_drop(wave_drop_16bit)
+newton_pendle(wave_drop_16bit)
+#wave_drop(wave_drop_16bit)

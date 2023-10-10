@@ -6,7 +6,6 @@ ds_data = 24
 shcp_inst_shifter = 23
 stcp_outputter = 4
 
-oe_pin = DigitalInputDevice(oe_pullup)
 data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)

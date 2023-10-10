@@ -148,7 +148,7 @@ def newton_pendle(newton_pendle_16bit):
     sleep_length = 0.0001
     while True:
         for i in newton_pendle_16bit:
-            sleep(0.05)
+            sleep(0.5)
             for digit in i:
                 if digit == "1":
                     high_bit(sleep_length)

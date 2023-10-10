@@ -88,9 +88,19 @@ def costum_led_pattern():
                     high_bit(sleep_length)
                 else:
                     low_bit(sleep_length)
+
         else:
             print("your input hast to be 8 objects long e.g: '10101010' ")
 
 
+def wave_led():
+    while x < 10:
+        high_bit(sleep_length)
+        low_bit(sleep_length)
+        x += 1
+
+
+
 # data_processor_led7_segment(data_segmented, sleep_length)
-costum_led_pattern()
+# costum_led_pattern()
+wave_led()

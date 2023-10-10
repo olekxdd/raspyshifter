@@ -111,17 +111,18 @@ def random_led():
     byte_amt = 0
     sleep_length = 0.01
     while x < 200:
-        while byte_amt < 16:
-            n = random.randint(0, 1)
-            if n == 1:
-                high_bit(sleep_length)
-                x += 1
-                byte_amt += 1
-            else:
-                low_bit(sleep_length)
-                x += 1
-                byte_amt += 1
-        sleep(1)
+        n = random.randint(0, 1)
+        if byte_amt == 16:
+            sleep(1)
+        if n == 1:
+            high_bit(sleep_length)
+            x += 1
+            byte_amt += 1
+        else:
+            low_bit(sleep_length)
+            x += 1
+            byte_amt += 1
+
 
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()

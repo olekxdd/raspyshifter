@@ -139,7 +139,7 @@ def data_processor_led7_segment(data_segmented, sleep_length):
 def costum_led_pattern():
     while True:
         costum_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 8 entries): ")
-        if len(costum_data_segmented) is 8:
+        if len(costum_data_segmented) == 8:
             for i in range(0, len(costum_data_segmented)):
                 sleep(sleep_length)
                 if data_segmented[i] == "1":

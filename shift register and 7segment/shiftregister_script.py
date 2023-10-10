@@ -76,7 +76,6 @@ numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "100
 numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
                 7: "11111000", 8: "10000000", 9: "10010000"}
 
-
 sleep_length = 0.2
 
 
@@ -108,7 +107,6 @@ def low_bit(sleep_length):
     stcp_pin.off()
 
 
-
 def segmenter():
     num = int(input("Input a number between 0-9: "))
     if num in numbers:
@@ -137,40 +135,21 @@ def data_processor_led7_segment(data_segmented, sleep_length):
         else:
             low_bit(sleep_length)
 
-# def wave_led():
-#     while True:
-#
-#         if data_segmented[i] == "1":
-#             data_pin.on()
-#             sleep(sleep_length)
-#             shcp_pin.on()
-#             sleep(sleep_length)
-#             shcp_pin.off()
-#             sleep(sleep_length)
-#             data_pin.off()
-#             sleep(sleep_length)
-#             stcp_pin.on()
-#             sleep(sleep_length)
-#             stcp_pin.off()
-#         else:
-#             data_pin.off()
-#             sleep(sleep_length)
-#             shcp_pin.off()
-#             sleep(sleep_length)
-#             shcp_pin.on()
-#             sleep(sleep_length)
-#             shcp_pin.off()
-#             sleep(sleep_length)
-#             stcp_pin.on()
-#             sleep(sleep_length)
-#             stcp_pin.off()
+
+def costum_led_pattern():
+    while True:
+        costum_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 8 entries): ")
+        if len(costum_data_segmented) is 8:
+            for i in range(0, len(costum_data_segmented)):
+                sleep(sleep_length)
+                if data_segmented[i] == "1":
+                    high_bit(sleep_length)
+                else:
+                    low_bit(sleep_length)
+                break
+        else:
+            print("your input hast to be 8 objects long e.g: '10101010' ")
 
 
-
-data_processor_led7_segment(data_segmented, sleep_length)
-
-
-
-
-
-
+#data_processor_led7_segment(data_segmented, sleep_length)
+costum_led_pattern()

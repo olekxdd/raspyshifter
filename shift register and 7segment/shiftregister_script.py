@@ -146,10 +146,10 @@ def costum_led_pattern():
                     high_bit(sleep_length)
                 else:
                     low_bit(sleep_length)
-                break
+            break
         else:
             print("your input hast to be 8 objects long e.g: '10101010' ")
 
 
-#data_processor_led7_segment(data_segmented, sleep_length)
+# data_processor_led7_segment(data_segmented, sleep_length)
 costum_led_pattern()

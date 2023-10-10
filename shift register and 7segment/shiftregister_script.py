@@ -171,6 +171,7 @@ def data_processor(data_segmented):
 # data_processor(data_segmented)
 
 
+
 sleep_length = 0.2
 data_pin.on()
 sleep(sleep_length)

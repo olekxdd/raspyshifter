@@ -107,9 +107,9 @@ def laser_led():
 
 
 def random_led():
-    n = random.randint(0, 1)
     x = 0
     while x < 200:
+        n = random.randint(0, 1)
         print(n)
         if n == 1:
             high_bit(sleep_length)

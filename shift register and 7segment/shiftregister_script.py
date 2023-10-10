@@ -143,14 +143,15 @@ def random_led_static():
 
 
 def drop_wave(wave_drop_16bit):
-    sleep_length = 0.001
-    for i in wave_drop_16bit:
-        sleep(0.5)
-        for digit in i:
-            if digit == "1":
-                high_bit(sleep_length)
-            else:
-                low_bit(sleep_length)
+    sleep_length = 0.0001
+    while True:
+        for i in wave_drop_16bit:
+            sleep(0.2)
+            for digit in i:
+                if digit == "1":
+                    high_bit(sleep_length)
+                else:
+                    low_bit(sleep_length)
 
 
 # data_processor_led7_segment(data_segmented, sleep_length)

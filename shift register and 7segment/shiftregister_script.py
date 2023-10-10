@@ -139,7 +139,7 @@ def segmenter():
         return numbers[num]
 
 
-# data_segmented = str(segmenter())
+data_segmented = str(segmenter())
 
 
 def data_processor(data_segmented):
@@ -163,46 +163,19 @@ def data_processor(data_segmented):
             sleep(sleep_length)
             shcp_pin.off()
             sleep(sleep_length)
+            shcp_pin.on()
+            sleep(sleep_length)
+            shcp_pin.off()
+            sleep(sleep_length)
             stcp_pin.on()
             sleep(sleep_length)
             stcp_pin.off()
 
 
-# data_processor(data_segmented)
+data_processor(data_segmented)
 
 
 
-sleep_length = 0.2
-data_pin.on()
-sleep(sleep_length)
-shcp_pin.on()
-sleep(sleep_length)
-shcp_pin.off()
-sleep(sleep_length)
-data_pin.off()
-sleep(sleep_length)
-stcp_pin.on()
-sleep(sleep_length)
-stcp_pin.off()
 
-data_pin.off()
-sleep(sleep_length)
-shcp_pin.off()
-sleep(sleep_length)
-stcp_pin.on()
-sleep(sleep_length)
-stcp_pin.off()
-
-data_pin.on()
-sleep(sleep_length)
-shcp_pin.on()
-sleep(sleep_length)
-shcp_pin.off()
-sleep(sleep_length)
-data_pin.off()
-sleep(sleep_length)
-stcp_pin.on()
-sleep(sleep_length)
-stcp_pin.off()
 
 

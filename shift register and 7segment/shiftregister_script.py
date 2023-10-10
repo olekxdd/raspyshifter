@@ -84,7 +84,7 @@ def costum_led_pattern():
         if len(costum_data_segmented) == 8:
             for i in range(0, len(costum_data_segmented)):
                 sleep(sleep_length)
-                if data_segmented[i] == "1":
+                if costum_data_segmented[i] == "1":
                     high_bit(sleep_length)
                 else:
                     low_bit(sleep_length)

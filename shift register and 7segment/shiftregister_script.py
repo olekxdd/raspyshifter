@@ -143,8 +143,9 @@ def random_led_static():
 
 
 def drop_wave(wave_drop_16bit):
+    sleep_length = 0.001
     for i in wave_drop_16bit:
-        sleep(1)
+        sleep(0.5)
         for digit in i:
             if digit == "1":
                 high_bit(sleep_length)

@@ -108,17 +108,20 @@ def laser_led():
 
 def random_led():
     x = 0
+    byte_amt = 0
     sleep_length = 0.001
     while x < 200:
-        n = random.randint(0, 1)
-        print(n)
-        if n == 1:
-            high_bit(sleep_length)
-            x += 1
-        else:
-            low_bit(sleep_length)
-            x += 1
-
+        while byte_amt < 16:
+            n = random.randint(0, 1)
+            if n == 1:
+                high_bit(sleep_length)
+                x += 1
+                byte_amt += 1
+            else:
+                low_bit(sleep_length)
+                x += 1
+                byte_amt += 1
+        sleep(5)
 
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()

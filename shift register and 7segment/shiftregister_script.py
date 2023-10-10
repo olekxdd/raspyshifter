@@ -24,30 +24,18 @@ sleep_length = 0.5
 def high_bit(sleep_length):
     sleep(sleep_length)
     data_pin.on()
-
     shcp_pin.on()
-
     shcp_pin.off()
-
     data_pin.off()
-
     stcp_pin.on()
-
     stcp_pin.off()
 
 
 def low_bit(sleep_length):
     sleep(sleep_length)
-    data_pin.off()
-
-    shcp_pin.off()
-
     shcp_pin.on()
-
     shcp_pin.off()
-
     stcp_pin.on()
-
     stcp_pin.off()
 
 

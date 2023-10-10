@@ -6,8 +6,6 @@ ds_data = 18
 stcp_outputter = 15
 shcp_inst_shifter = 14
 
-
-
 data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
@@ -15,10 +13,13 @@ stcp_pin = DigitalOutputDevice(stcp_outputter)
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]
+
 numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
                 7: "11111000", 8: "10000000", 9: "10010000"}
+
 wave_drop = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
                 "10000000", "10010000"]
+
 sleep_length = float(input("input the sleep length: "))
 
 
@@ -92,7 +93,19 @@ def wave_led():
         x += 1
 
 
+def laser_led():
+    x = 0
+    while x < 200:
+        high_bit(sleep_length)
+        high_bit(sleep_length)
+        high_bit(sleep_length)
+        low_bit(sleep_length)
+        low_bit(sleep_length)
+        low_bit(sleep_length)
+        x += 1
+
+
 
 # data_processor_led7_segment(data_segmented, sleep_length)
 # costum_led_pattern()
-wave_led()
+laser_led()

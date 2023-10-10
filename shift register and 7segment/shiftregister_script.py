@@ -4,7 +4,7 @@ from time import sleep
 
 ds_data = 24
 shcp_inst_shifter = 23
-stcp_outputter = 4
+stcp_outputter = 18
 
 data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)

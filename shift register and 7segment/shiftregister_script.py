@@ -18,34 +18,36 @@ numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "100
 numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
                 7: "11111000", 8: "10000000", 9: "10010000"}
 
-sleep_length = 0.1
+sleep_length = 0.5
 
 
 def high_bit(sleep_length):
+    sleep(sleep_length)
     data_pin.on()
-    sleep(sleep_length)
+
     shcp_pin.on()
-    sleep(sleep_length)
+
     shcp_pin.off()
-    sleep(sleep_length)
+
     data_pin.off()
-    sleep(sleep_length)
+
     stcp_pin.on()
-    sleep(sleep_length)
+
     stcp_pin.off()
 
 
 def low_bit(sleep_length):
+    sleep(sleep_length)
     data_pin.off()
-    sleep(sleep_length)
+
     shcp_pin.off()
-    sleep(sleep_length)
+
     shcp_pin.on()
-    sleep(sleep_length)
+
     shcp_pin.off()
-    sleep(sleep_length)
+
     stcp_pin.on()
-    sleep(sleep_length)
+
     stcp_pin.off()
 
 

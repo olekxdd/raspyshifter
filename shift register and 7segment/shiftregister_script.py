@@ -64,7 +64,7 @@ def led_modes(modes):
         else:
             break
         if question == modes[question, -1]:
-            mode()
+            mode[question, -1]()
         else:
             print("")
 

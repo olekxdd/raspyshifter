@@ -50,20 +50,22 @@ def low_bit(sleep_length):
     stcp_pin.on()
     stcp_pin.off()
 
+
 # modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
 #         6: newton_pendle, 7: wave_drop}
 
-def led_modes(modes):
+def led_modes(modes_dict):
     x = 1
     # print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
-    for i in modes:
-        print(f"{str(x)}: {str(modes[x])}")
+    for i in modes_dict:
+        print(f"{str(x)}: {str(modes_dict[x])}")
         x += 1
     question = int(input("which led mode do you want?: "))
-    int(question) - 1
+    int(question)
     while True:
-        if question in modes:
-            modes[question]()
+        if question in modes_dict:
+            if modes_dict[question] in modes_arguments:
+                modes_dict[question](modes_arguments[modes_dict[question]])
 
         else:
             print("wrong numba idiot, pick one from the list....")
@@ -189,9 +191,12 @@ def wave_drop(wave_drop_16bit):
                     low_bit(sleep_length)
 
 
-modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
-         6: newton_pendle, 7: wave_drop}
+modes_dict = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
+              6: newton_pendle, 7: wave_drop}
 
+modes_arguments = {costum_led_pattern: None, wave_led: None, laser_led: None, random_led_shifter: None,
+                   random_led_static: None,
+                   newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
 # wave_drop(wave_drop_16bit)
 
-led_modes(modes)
+led_modes(modes_dict)

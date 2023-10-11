@@ -62,7 +62,6 @@ def led_modes(modes_dict):
     choice = int(input("which led mode do you want?: "))
     if choice in modes_dict:
         selected_function, arg_count = modes_dict[choice]
-        modes_dict[choice]()
 
         arguments = []
         for i in range(arg_count):

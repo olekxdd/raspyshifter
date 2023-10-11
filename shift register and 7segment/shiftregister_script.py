@@ -60,9 +60,9 @@ def led_modes(modes):
     question = int(input("which led mode do you want?: "))
     for mode in modes:
         if question > len(modes):
-            break
-        else:
             print("see list and pick listed number")
+        else:
+            break
         if question == modes[question - 1]:
             mode()
         else:

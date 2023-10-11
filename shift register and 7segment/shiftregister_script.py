@@ -11,6 +11,8 @@ data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
 
+
+#modes = ["costum_led_pattern", "wave_led", "laser_led", "random_led_shifter", "random_led_static", "newton_pendle", "wave_drop"]
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]
@@ -27,6 +29,7 @@ newton_pendle_16bit = ["0000000110000000", "0000001001000000", "0000010000100000
 wave_drop_16bit = ["0000000110000000","0000011001100000", "0001100110011000", "1001100110011001", "0001100110011000", "0000011001100000"]
 
 sleep_length = float(input("input the sleep length: "))
+
 
 
 def high_bit(sleep_length):
@@ -46,6 +49,27 @@ def low_bit(sleep_length):
     stcp_pin.on()
     stcp_pin.off()
 
+
+def led_modes(modes):
+    x = 1
+    #print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
+    for i in modes:
+        print(f"{str(x)}: {i}")
+        x += 1
+
+    question = int(input("which led mode do you want?: "))
+    for mode in modes:
+        if question < len(modes):
+            break
+        else:
+            print("see list and pick listed number")
+        if question == modes[question-1]:
+            mode()
+        else:
+            print("")
+
+
+led_modes()
 
 # def segmenter():
 #     num = int(input("Input a number between 0-9: "))
@@ -167,8 +191,7 @@ def wave_drop(wave_drop_16bit):
                     low_bit(sleep_length)
 
 
-def led_mode():
-    print(f"1:costum_led_pattern \n2:wave_led\n 3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
-    question = input("which led mode do you want?: ")
+modes = [costum_led_pattern, wave_led, laser_led, random_led_shifter, random_led_static, newton_pendle, wave_drop]
 
-led_mode()
+
+led_modes()

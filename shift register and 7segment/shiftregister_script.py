@@ -52,7 +52,7 @@ def low_bit():
 # modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
 #         6: newton_pendle, 7: wave_drop}
 
-def led_modes(modes_dict):
+def led_modes(modes_dict, modes_arguments):
     x = 1
     # print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
     for i in modes_dict:
@@ -63,8 +63,10 @@ def led_modes(modes_dict):
     while True:
         if question in modes_dict:
             if modes_dict[question] in modes_arguments:
-                modes_dict[question](modes_arguments[modes_dict[question]])
-
+                if modes_arguments is not None:
+                    modes_dict[question](modes_arguments[modes_dict[question]])
+                else:
+                    modes_arguments = ""
         else:
             print("wrong numba idiot, pick one from the list....")
 
@@ -197,4 +199,4 @@ modes_arguments = {costum_led_pattern: None, wave_led: None, laser_led: None, ra
                    newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
 # wave_drop(wave_drop_16bit)
 
-led_modes(modes_dict)
+led_modes(modes_dict, modes_arguments)

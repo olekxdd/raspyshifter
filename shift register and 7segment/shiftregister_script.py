@@ -192,4 +192,6 @@ def wave_drop(wave_drop_16bit):
 
 modes = [costum_led_pattern, wave_led, laser_led, random_led_shifter, random_led_static, newton_pendle, wave_drop]
 
+wave_drop(wave_drop_16bit)
+
 led_modes(modes)

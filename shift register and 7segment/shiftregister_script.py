@@ -50,12 +50,14 @@ def low_bit(sleep_length):
     stcp_pin.on()
     stcp_pin.off()
 
+modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
+         6: newton_pendle, 7: wave_drop}
 
 def led_modes(modes):
     x = 1
     # print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
     for i in modes:
-        print(f"{str(x)}: {i}")
+        print(f"{str(x)}: {str(modes[x])}")
         x += 1
     question = int(input("which led mode do you want?: "))
     int(question) - 1
@@ -67,7 +69,7 @@ def led_modes(modes):
         if question == modes[question]:
             mode()
         else:
-            print("")
+            print("hmmmm")
 
 
 # def segmenter():
@@ -190,8 +192,9 @@ def wave_drop(wave_drop_16bit):
                     low_bit(sleep_length)
 
 
-modes = [costum_led_pattern, wave_led, laser_led, random_led_shifter, random_led_static, newton_pendle, wave_drop]
+modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
+         6: newton_pendle, 7: wave_drop}
 
-wave_drop(wave_drop_16bit)
+# wave_drop(wave_drop_16bit)
 
 led_modes(modes)

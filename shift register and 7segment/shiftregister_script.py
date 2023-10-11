@@ -63,7 +63,7 @@ def led_modes(modes):
             print("see list and pick listed number")
         else:
             break
-        if question == modes[question - 1]:
+        if question == modes[question, -1]:
             mode()
         else:
             print("")

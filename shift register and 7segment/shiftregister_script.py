@@ -53,20 +53,26 @@ def low_bit(sleep_length):
 # modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
 #         6: newton_pendle, 7: wave_drop}
 
-def led_modes(modes):
+def led_modes(modes_dict):
     x = 1
     # print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
-    for i in modes:
-        print(f"{str(x)}: {str(modes[x])}")
+    for i in modes_dict:
+        print(f"{str(x)}: {str(modes_dict[x])}")
         x += 1
-    question = int(input("which led mode do you want?: "))
-    int(question) - 1
-    while True:
-        if question in modes:
-            modes[question]()
+    choice = int(input("which led mode do you want?: "))
+    if choice in modes_dict:
+        selected_function, arg_count = modes_dict[choice]
+        modes_dict[choice]()
 
-        else:
-            print("wrong numba idiot, pick one from the list....")
+        arguments = []
+        for i in range(arg_count):
+            arg = input(f"Enter argument {i + 1}: ")
+            arguments.append(arg)
+
+        selected_function(*arguments)
+
+    else:
+        print("wrong numba idiot, pick one from the list....")
 
 
 # def segmenter():
@@ -190,7 +196,7 @@ def wave_drop(wave_drop_16bit):
 
 
 modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
-         6: newton_pendle, 7: wave_drop}
+         6: (newton_pendle, 1), 7: (wave_drop, 1)}
 
 # wave_drop(wave_drop_16bit)
 

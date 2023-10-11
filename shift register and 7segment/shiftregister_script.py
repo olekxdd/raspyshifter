@@ -11,8 +11,7 @@ data_pin = DigitalOutputDevice(ds_data)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
 
-
-#modes = ["costum_led_pattern", "wave_led", "laser_led", "random_led_shifter", "random_led_static", "newton_pendle", "wave_drop"]
+# modes = ["costum_led_pattern", "wave_led", "laser_led", "random_led_shifter", "random_led_static", "newton_pendle", "wave_drop"]
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]
@@ -21,15 +20,17 @@ numbers_dict = {0: "11000000", 1: "11111001", 2: "10100100", 3: "10110000", 4: "
                 7: "11111000", 8: "10000000", 9: "10010000"}
 
 wave_drop_8bit = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
-             "10000000", "10010000"]
+                  "10000000", "10010000"]
 
-newton_pendle_16bit = ["0000000110000000", "0000001001000000", "0000010000100000", "0000100000010000", "0001000000001000", "0010000000000100", "0100000000000010", "1000000000000001",
-             "0100000000000010", "0010000000000100", "0001000000001000", "0000100000010000", "0000010000100000", "0000001001000000"]
+newton_pendle_16bit = ["0000000110000000", "0000001001000000", "0000010000100000", "0000100000010000",
+                       "0001000000001000", "0010000000000100", "0100000000000010", "1000000000000001",
+                       "0100000000000010", "0010000000000100", "0001000000001000", "0000100000010000",
+                       "0000010000100000", "0000001001000000"]
 
-wave_drop_16bit = ["0000000110000000","0000011001100000", "0001100110011000", "1001100110011001", "0001100110011000", "0000011001100000"]
+wave_drop_16bit = ["0000000110000000", "0000011001100000", "0001100110011000", "1001100110011001", "0001100110011000",
+                   "0000011001100000"]
 
 sleep_length = float(input("input the sleep length: "))
-
 
 
 def high_bit(sleep_length):
@@ -52,7 +53,7 @@ def low_bit(sleep_length):
 
 def led_modes(modes):
     x = 1
-    #print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
+    # print(f"1:costum_led_pattern\n2:wave_led\n3:laser_led\n4:random_led_shifter\n5:random_led_static\n6:newton_pendle\n7:wave_drop" )
     for i in modes:
         print(f"{str(x)}: {i}")
         x += 1
@@ -63,13 +64,11 @@ def led_modes(modes):
             break
         else:
             print("see list and pick listed number")
-        if question == modes[question-1]:
+        if question == modes[question - 1]:
             mode()
         else:
             print("")
 
-
-led_modes()
 
 # def segmenter():
 #     num = int(input("Input a number between 0-9: "))
@@ -193,5 +192,4 @@ def wave_drop(wave_drop_16bit):
 
 modes = [costum_led_pattern, wave_led, laser_led, random_led_shifter, random_led_static, newton_pendle, wave_drop]
 
-
-led_modes()
+led_modes(modes)

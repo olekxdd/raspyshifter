@@ -50,8 +50,8 @@ def low_bit(sleep_length):
     stcp_pin.on()
     stcp_pin.off()
 
-modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
-         6: newton_pendle, 7: wave_drop}
+# modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
+#         6: newton_pendle, 7: wave_drop}
 
 def led_modes(modes):
     x = 1

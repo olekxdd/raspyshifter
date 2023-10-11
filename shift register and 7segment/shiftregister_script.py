@@ -30,11 +30,10 @@ newton_pendle_16bit = ["0000000110000000", "0000001001000000", "0000010000100000
 wave_drop_16bit = ["0000000110000000", "0000011001100000", "0001100110011000", "1001100110011001", "0001100110011000",
                    "0000011001100000"]
 
+
 sleep_length = float(input("input the sleep length: "))
 
-
-def high_bit(sleep_length):
-    sleep(sleep_length)
+def high_bit():
     data_pin.on()
     shcp_pin.on()
     shcp_pin.off()
@@ -43,8 +42,7 @@ def high_bit(sleep_length):
     stcp_pin.off()
 
 
-def low_bit(sleep_length):
-    sleep(sleep_length)
+def low_bit():
     shcp_pin.on()
     shcp_pin.off()
     stcp_pin.on()

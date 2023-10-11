@@ -31,7 +31,7 @@ wave_drop_16bit = ["0000000110000000", "0000011001100000", "0001100110011000", "
                    "0000011001100000"]
 
 
-sleep_length = float(input("input the sleep length: "))
+sleep_length = float(input("input the sleep length: ")) # add this line to every function and give recommendation
 
 def high_bit():
     data_pin.on()
@@ -104,9 +104,9 @@ def costum_led_pattern():
             for i in range(0, len(costum_data_segmented)):
                 sleep(sleep_length)
                 if costum_data_segmented[i] == "1":
-                    high_bit(sleep_length)
+                    high_bit()
                 else:
-                    low_bit(sleep_length)
+                    low_bit()
 
         else:
             print("your input hast to be 8 objects long e.g: '10101010' ")
@@ -115,20 +115,20 @@ def costum_led_pattern():
 def wave_led():
     x = 0
     while x < 200:
-        high_bit(sleep_length)
-        low_bit(sleep_length)
+        high_bit()
+        low_bit()
         x += 1
 
 
 def laser_led():
     x = 0
     while x < 200:
-        high_bit(sleep_length)
-        high_bit(sleep_length)
-        high_bit(sleep_length)
-        low_bit(sleep_length)
-        low_bit(sleep_length)
-        low_bit(sleep_length)
+        high_bit()
+        high_bit()
+        high_bit()
+        low_bit()
+        low_bit()
+        low_bit()
         x += 1
 
 
@@ -138,10 +138,10 @@ def random_led_shifter():
         n = random.randint(0, 1)
         print(n)
         if n == 1:
-            high_bit(sleep_length)
+            high_bit()
             x += 1
         else:
-            low_bit(sleep_length)
+            low_bit()
             x += 1
 
 
@@ -156,11 +156,11 @@ def random_led_static():
             sleep(stop_timer)
             byte_amt = 0
         if n == 1:
-            high_bit(sleep_length)
+            high_bit()
             x += 1
             byte_amt += 1
         else:
-            low_bit(sleep_length)
+            low_bit()
             x += 1
             byte_amt += 1
 
@@ -172,9 +172,9 @@ def newton_pendle(newton_pendle_16bit):
             sleep(0.2)
             for digit in i:
                 if digit == "1":
-                    high_bit(sleep_length)
+                    high_bit()
                 else:
-                    low_bit(sleep_length)
+                    low_bit()
 
 
 def wave_drop(wave_drop_16bit):
@@ -184,9 +184,9 @@ def wave_drop(wave_drop_16bit):
             sleep(0.5)
             for digit in i:
                 if digit == "1":
-                    high_bit(sleep_length)
+                    high_bit()
                 else:
-                    low_bit(sleep_length)
+                    low_bit()
 
 
 modes_dict = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,

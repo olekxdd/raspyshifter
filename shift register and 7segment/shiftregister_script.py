@@ -61,15 +61,12 @@ def led_modes(modes):
         x += 1
     question = int(input("which led mode do you want?: "))
     int(question) - 1
-    for mode in modes:
-        if question > len(modes):
-            print("see list and pick listed number")
+    while True:
+        if question in modes:
+            modes[question]()
+
         else:
-            break
-        if question == modes[question]:
-            mode()
-        else:
-            print("hmmmm")
+            print("wrong numba idiot, pick one from the list....")
 
 
 # def segmenter():

@@ -98,7 +98,7 @@ def costum_led_pattern():
             print("your input hast to be 8 objects long e.g: '10101010' ")
 
 
-def wave_led():
+def wave_led(None):
     x = 0
     while x < 200:
         high_bit()

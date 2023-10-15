@@ -207,6 +207,6 @@ modes_arguments = {costum_led_pattern: None, wave_led: None, laser_led: None, ra
                    random_led_static: None,
                    newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
 
-newton_pendle(newton_pendle_16bit)
+#newton_pendle(newton_pendle_16bit)
 
 led_modes(modes_dict, modes_arguments)

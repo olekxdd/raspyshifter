@@ -193,9 +193,7 @@ def led_modes(modes_dict, modes_arguments):
             if modes_dict[choice] in modes_arguments:
                 if modes_arguments is not None:
                     modes_dict[choice](modes_arguments[modes_dict[choice]])
-                else:
-                    # modes_arguments[choice] = None
-                    # modes_dict[choice](modes_arguments[modes_dict[choice]])
+
         else:
             print("wrong numba idiot, pick one from the list....")
 

@@ -4,14 +4,14 @@ from time import sleep
 import random
 
 ds_data = 18
-oe_outputcontrol = 4
+oe_output_control = 4
 stcp_outputter = 15
 shcp_inst_shifter = 14
 
 
 
 data_pin = DigitalOutputDevice(ds_data)
-oe_pin = DigitalOutputDevice(oe_outputcontrol)
+oe_pin = DigitalOutputDevice(oe_output_control)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
 
@@ -34,8 +34,8 @@ newton_pendle_16bit = ["0000000110000000", "0000001001000000", "0000010000100000
 wave_drop_16bit = ["0000000110000000", "0000011001100000", "0001100110011000", "1001100110011001", "0001100110011000",
                    "0000011001100000"]
 
-
 sleep_length = float(input("input the sleep length: ")) # add this line to every function and give recommendation
+
 
 def high_bit():
     data_pin.on()
@@ -56,9 +56,6 @@ def low_bit():
 # modes = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
 #         6: newton_pendle, 7: wave_drop}
 
-
-
-#def oe_output_control():
 
 
 # def led_modes(modes_dict, modes_arguments):
@@ -109,17 +106,18 @@ def low_bit():
 #         else:
 #             low_bit(sleep_length)
 
-def costum_led_pattern( ):
+def costum_led_pattern():
     while True:
         costum_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 8 entries): ")
         if len(costum_data_segmented) == 8:
+            oe_pin.on()
             for i in range(0, len(costum_data_segmented)):
                 sleep(sleep_length)
                 if costum_data_segmented[i] == "1":
                     high_bit()
                 else:
                     low_bit()
-
+            oe_pin.off()
         else:
             print("your input hast to be 8 objects long e.g: '10101010' ")
 
@@ -156,13 +154,13 @@ def random_led_shifter():
             low_bit()
             x += 1
 
-
 def random_led_static():
     stop_timer = 1
     x = 0
     byte_amt = 0
     sleep_length = 0.0001
     while x < 1000:
+        oe_pin.on()
         n = random.randint(0, 1)
         if byte_amt == 16:
             sleep(stop_timer)
@@ -175,31 +173,33 @@ def random_led_static():
             low_bit()
             x += 1
             byte_amt += 1
-
+        oe_pin.off()
 
 def newton_pendle(newton_pendle_16bit):
     sleep_length = 0.0001
     while True:
         for i in newton_pendle_16bit:
             sleep(0.2)
+            oe_pin.on()
             for digit in i:
                 if digit == "1":
                     high_bit()
                 else:
                     low_bit()
-
+            oe_pin.off()
 
 def wave_drop(wave_drop_16bit):
     sleep_length = 0.001
     while True:
         for i in wave_drop_16bit:
+            oe_pin.on()
             sleep(0.5)
             for digit in i:
                 if digit == "1":
                     high_bit()
                 else:
                     low_bit()
-
+            oe_pin.off()
 
 #modes_dict = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
 #              6: newton_pendle, 7: wave_drop}

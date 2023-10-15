@@ -103,9 +103,10 @@ def wave_led():
     sleep_length = float(input("input a lenght in seconds or decimals e.g: 0.1: "))
     while x < 200:
         high_bit()
+        sleep(sleep_length)
         low_bit()
         x += 1
-        sleep(sleep_length)
+
 
 
 def laser_led():

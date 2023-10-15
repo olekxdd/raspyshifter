@@ -84,8 +84,8 @@ def low_bit():
 
 def costum_led_pattern():
     while True:
-        costum_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 8 entries): ")
-        if len(costum_data_segmented) == 8:
+        costum_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 16 entries are shown): ")
+        if len(costum_data_segmented) == 16:
             oe_pin.on()
             for i in range(0, len(costum_data_segmented)):
                 sleep(sleep_length)
@@ -95,7 +95,7 @@ def costum_led_pattern():
                     low_bit()
             oe_pin.off()
         else:
-            print("your input hast to be 8 objects long e.g: '10101010' ")
+            print("your input hast to be 16 objects long e.g: '1010101010101010' ")
 
 
 def wave_led():
@@ -112,13 +112,20 @@ def wave_led():
 
 def laser_led():
     x = 0
+    sleep_length = float(input("input a lenght in seconds or decimals e.g: 0.1: "))
     while x < 200:
         high_bit()
+        sleep(sleep_length)
         high_bit()
+        sleep(sleep_length)
         high_bit()
+        sleep(sleep_length)
         low_bit()
+        sleep(sleep_length)
         low_bit()
+        sleep(sleep_length)
         low_bit()
+        sleep(sleep_length)
         x += 1
 
 

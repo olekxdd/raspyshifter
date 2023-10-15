@@ -98,7 +98,7 @@ def costum_led_pattern():
             print("your input hast to be 8 objects long e.g: '10101010' ")
 
 
-def wave_led(None):
+def wave_led():
     x = 0
     while x < 200:
         high_bit()
@@ -187,16 +187,14 @@ def led_modes(modes_dict, modes_arguments):
         print(f"{str(x)}: {str(modes_dict[x])}")
         x += 1
     choice = int(input("which led mode do you want?: "))
-    int(choice)
-    while True:
-        if choice in modes_dict:
-            if modes_dict[choice] in modes_arguments:
-                if modes_arguments is not None:
-                    modes_dict[choice](modes_arguments[modes_dict[choice]])
-                else:
-                    func_arg = modes_dict[choice]
-                    if func_arg.get(choice) is None:
-                        func_arg[choice] = None
+    if choice in modes_dict:
+        selected_mode = modes_dict[choice]
+        if selected_mode in modes_arguments:
+            mode_argument = modes_arguments[selected_mode]
+            if mode_argument is not None:
+                selected_mode(mode_argument)
+            else:
+                selected_mode()
 
 
                     # modes_arguments[choice] = None

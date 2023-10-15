@@ -194,7 +194,6 @@ def led_modes(modes_dict, modes_arguments):
                 if modes_arguments is not None:
                     modes_dict[choice](modes_arguments[modes_dict[choice]])
                 else:
-                    modes_arguments = None
                     modes_dict[choice](modes_arguments[modes_dict[choice]])
         else:
             print("wrong numba idiot, pick one from the list....")
@@ -206,7 +205,5 @@ modes_dict = {1: costum_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_sh
 modes_arguments = {costum_led_pattern: None, wave_led: None, laser_led: None, random_led_shifter: None,
                    random_led_static: None,
                    newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
-
-#newton_pendle(newton_pendle_16bit)
 
 led_modes(modes_dict, modes_arguments)

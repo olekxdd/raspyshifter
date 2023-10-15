@@ -179,7 +179,7 @@ def newton_pendle(newton_pendle_16bit):
     sleep_length = 0.0001
     while True:
         for i in newton_pendle_16bit:
-            sleep(0.2)
+            sleep(0.1)
             oe_pin.on()
             for digit in i:
                 if digit == "1":

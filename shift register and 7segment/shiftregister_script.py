@@ -206,10 +206,6 @@ def led_modes(modes_dict, modes_arguments):
                 selected_mode(mode_argument)
             else:
                 selected_mode()
-
-
-                    # modes_arguments[choice] = None
-                    # modes_dict[choice](modes_arguments[modes_dict[choice]])
         else:
             print("wrong numba idiot, pick one from the list....")
 

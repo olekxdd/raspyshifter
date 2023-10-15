@@ -100,10 +100,12 @@ def costum_led_pattern():
 
 def wave_led():
     x = 0
+    sleep_length = int(input("input a lenght in seconds or decimals e.g : 0.1"))
     while x < 200:
         high_bit()
         low_bit()
         x += 1
+        sleep(sleep_length)
 
 
 def laser_led():

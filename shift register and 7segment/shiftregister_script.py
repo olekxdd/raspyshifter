@@ -63,7 +63,7 @@ def low_bit():
 def data_processor_led7_segment(numbers_dict):
     num = int(input("Input a number between 0-9: "))
     data = numbers_dict.get(num)
-    for i in range(0, len(data)):
+    for i in range(len(data), 0):
         sleep(0.2)
         if data[i] == "1":
             high_bit()

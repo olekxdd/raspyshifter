@@ -75,7 +75,7 @@ def custom_led_pattern():
     while True:
         custom_data_segmented = input(
             "type in a series of bits (1 and 0) which represent the leds(only 16 entries are shown): ")
-        if len(custom_data_segmented) == 16:
+        if len(custom_data_segmented) == 15:
             oe_pin.on()
             for i in range(0, len(custom_data_segmented)):
                 if custom_data_segmented[i] == "1":

@@ -118,8 +118,10 @@ def laser_led():
 
 def random_led_shifter():
     x = 0
+    sleep_length = float(input("input a length in seconds or decimals e.g: 0.1: "))
     while x < 200:
         n = random.randint(0, 1)
+        sleep(sleep_length)
         print(n)
         if n == 1:
             high_bit()

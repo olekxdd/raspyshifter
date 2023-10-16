@@ -63,7 +63,7 @@ def low_bit():
 def data_processor_led7_segment(numbers_dict):
     num = int(input("Input a number between 0-9: "))
     data = numbers_dict.get(num)
-    for i in range(-len(data), 0):
+    for i in range(0, len(data)):
         if data[i] == "1":
             high_bit()
         else:
@@ -202,6 +202,6 @@ modes_arguments = {custom_led_pattern: None, wave_led: None, laser_led: None, ra
                    random_led_static: None,
                    newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
 
-#led_modes(modes_dict, modes_arguments)
+led_modes(modes_dict, modes_arguments)
 
-data_processor_led7_segment(numbers_dict)
+#data_processor_led7_segment(numbers_dict)

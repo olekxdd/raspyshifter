@@ -3,15 +3,21 @@ from gpiozero import LED, output_devices
 from time import sleep
 import random
 
+# assigning name/role to the pin (Broadcom (BCM) numbering)
+
 ds_data = 18
 oe_output_control = 4
 stcp_outputter = 15
 shcp_inst_shifter = 14
 
+# Creating physical Pins with the GPIOZero Libary
+
 data_pin = DigitalOutputDevice(ds_data)
 oe_pin = DigitalOutputDevice(oe_output_control)
 shcp_pin = DigitalOutputDevice(shcp_inst_shifter)
 stcp_pin = DigitalOutputDevice(stcp_outputter)
+
+# Lists and Dicts for bit/LED pattern
 
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
@@ -32,8 +38,7 @@ wave_drop_16bit = ["0000000110000000", "0000011001100000", "0001100110011000", "
                    "0001100000011000"]
 
 
-# sleep_length = float(input("input the sleep length: "))  # add this line to every function and give recommendation
-
+# Functions for Creating either a HIGH or LOW, its rather timing based and less Logic (improvements?)
 
 def high_bit():
     data_pin.on()
@@ -50,6 +55,10 @@ def low_bit():
     stcp_pin.on()
     stcp_pin.off()
 
+
+# Functions segments a bit Pattern for the 7 segment IC (depends on the wiring)  and only allows the right range of
+# segments
+# check if the formatting is right because of the 8th dot
 
 def data_processor_led7_segment():
     num = int(input("Input a number between 0-9: "))

@@ -187,7 +187,7 @@ def led_modes(modes_dict, modes_arguments):
         selected_mode = modes_dict[choice]
         if selected_mode in modes_arguments:
             mode_argument = modes_arguments[selected_mode]
-            if mode_argument is not None:
+            if mode_argument  is not None:
                 selected_mode(mode_argument)
             else:
                 selected_mode()

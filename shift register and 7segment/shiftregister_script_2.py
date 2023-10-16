@@ -147,6 +147,7 @@ def laser_led():
 def random_led_shifter():
     x = 0
     while x < 200:
+        sleep(0.1)
         n = random.randint(0, 1)
         print(n)
         if n == 1:

@@ -64,7 +64,7 @@ def data_processor_led7_segment(numbers_dict):
     sleep_length = float(input("input a length in seconds or decimals e.g: 0.1: "))
     num = int(input("Input a number between 0-9: "))
     data = numbers_dict.get(num)
-    for i in range(0, len(data)):
+    for i in data:
         sleep(sleep_length)
         if data[i] == "1":
             high_bit()

@@ -66,7 +66,7 @@ def data_processor_led7_segment(numbers_dict):
     data = numbers_dict.get(num)
     for i in data:
         sleep(sleep_length)
-        if data[i] == "1":
+        if i == "1":
             high_bit()
         else:
             low_bit()

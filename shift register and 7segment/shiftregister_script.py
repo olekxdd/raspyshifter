@@ -76,7 +76,7 @@ def data_processor_led7_segment(numbers_dict):
     else:
         for bits in numbers_dict:
             for bit in bits:
-                if bits == "1":
+                if bit == "1":
                     high_bit()
                 else:
                     low_bit()

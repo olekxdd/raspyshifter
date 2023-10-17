@@ -1,7 +1,7 @@
-from gpiozero import DigitalOutputDevice, DigitalInputDevice
-from gpiozero import LED, output_devices
+from gpiozero import DigitalOutputDevice, DigitalInputDevice, LED, output_devices
 from time import sleep
 import random
+from signal import pause
 
 # assigning name/role to the pin (Broadcom (BCM) numbering)
 
@@ -70,7 +70,7 @@ def data_processor_led7_segment(numbers_dict):
             high_bit()
         else:
             low_bit()
-
+    pause()
 
 def custom_led_pattern():
     while True:

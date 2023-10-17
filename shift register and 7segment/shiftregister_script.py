@@ -199,12 +199,10 @@ def led_modes(modes_dict, modes_arguments):
 
 
 modes_dict = {1: custom_led_pattern, 2: wave_led, 3: laser_led, 4: random_led_shifter, 5: random_led_static,
-              6: newton_pendle, 7: wave_drop}
+              6: newton_pendle, 7: wave_drop, 8: data_processor_led7_segment}
 
 modes_arguments = {custom_led_pattern: None, wave_led: None, laser_led: None, random_led_shifter: None,
-                   random_led_static: None,
+                   random_led_static: None, data_processor_led7_segment: numbers_dict,
                    newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
 
 led_modes(modes_dict, modes_arguments)
-
-#data_processor_led7_segment(numbers_dict)

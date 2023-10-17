@@ -23,8 +23,8 @@ numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]
 
-numbers_dict = {0: "0111111", 1: "11111001", 2: "10100100", 3: "10110000", 4: "10011001", 5: "10010010", 6: "10000010",
-                7: "11111000", 8: "10000000", 9: "10010000"}
+numbers_dict = {0: "0111111", 1: "0110000", 2: "1101101", 3: "1111001", 4: "0110011", 5: "1011011", 6: "1011111",
+                7: "1110000", 8: "1111111", 9: "1111011"}
 
 wave_drop_8bit = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
                   "10000000", "10010000"]
@@ -62,21 +62,30 @@ def low_bit():
 
 def data_processor_led7_segment(numbers_dict):
     sleep_length = float(input("input a length in seconds or decimals e.g: 0.1: "))
-    num = int(input("Input a number between 0-9: "))
-    data = numbers_dict.get(num)
-    for i in data:
-        sleep(sleep_length)
-        if i == "1":
-            high_bit()
-        else:
-            low_bit()
-    pause()
+    choice = input("1: show specific number\n2: count down from 9 to 0 ")
+    if choice == "1":
+        num = int(input("Input a number between 0-9: "))
+        data = numbers_dict.get(num)
+        for i in data:
+            sleep(sleep_length)
+            if i == "1":
+                high_bit()
+            else:
+                low_bit()
+        pause()
+    else:
+        for bits in numbers_dict:
+            for bit in bits:
+                if bits == "1":
+                    high_bit()
+                else:
+                    low_bit()
+            sleep(sleep_length)
+
 
 def custom_led_pattern():
     while True:
-        custom_data_segmented = input(
-            "type in a series of bits (1 and 0) which represent the leds(only 16 entries are shown): ")
-#        if len(custom_data_segmented) == 16:
+        custom_data_segmented = input("type in a series of bits (1 and 0) which represent the leds(only 16 entries are shown): ")
         oe_pin.on()
         for i in range(0, len(custom_data_segmented)):
             if custom_data_segmented[i] == "1":
@@ -84,8 +93,6 @@ def custom_led_pattern():
             else:
                 low_bit()
         oe_pin.off()
-#        else:
- #           print("your input hast to be 16 objects long e.g: '1010101010101010' ")
 
 
 def wave_led():

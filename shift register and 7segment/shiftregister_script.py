@@ -23,8 +23,8 @@ numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 numbers_byte = ["11000000", "11111001", "10100100", "10110000", "10011001", "10010010", "10000010", "11111000",
                 "10000000", "10010000"]
 
-numbers_dict = {0: "0111111", 1: "0000110", 2: "1011011", 3: "1001111", 4: "1100110", 5: "1101101", 6: "1111101",
-                7: "0000111", 8: "1111111", 9: "1101111"}
+numbers_dict = {0: "01111110", 1: "00001100", 2: "10110110", 3: "10011110", 4: "11001100", 5: "11011010", 6: "11111010",
+                7: "00001110", 8: "11111110", 9: "11011110"}
 
 wave_drop_8bit = ["00011000", "00100100", "01000010", "10000001", "01000010", "00100100", "00011000", "00000000",
                   "10000000", "10010000"]
@@ -58,7 +58,6 @@ def low_bit():
 
 # Functions segments a bit Pattern for the 7 segment IC (depends on the wiring)  and only allows the right range of
 # segments
-# check if the formatting is right because of the 8th dot
 
 def data_processor_led7_segment(numbers_dict):
     sleep_length = float(input("input a length in seconds or decimals e.g: 0.1: "))

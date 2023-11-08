@@ -186,7 +186,7 @@ def wave_drop(wave_drop_16bit):
     while True:
         for i in wave_drop_16bit:
             oe_pin.on()
-            sleep(0.25)
+            sleep(0.5)
             for digit in i:
                 if digit == "1":
                     high_bit()

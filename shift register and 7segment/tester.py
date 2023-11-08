@@ -17,5 +17,5 @@ while True:
     data_pin.value = 1
     sleep(y)
     data_pin.value = 0
-    n += 0.1
+    n += 1
     print(y)

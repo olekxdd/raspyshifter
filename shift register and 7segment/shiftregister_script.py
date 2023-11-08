@@ -190,11 +190,10 @@ def wave_drop(wave_drop_16bit):
             for digit in i:
                 if digit == "1":
                     high_bit()
-                    sleep(0.5)
                 else:
                     low_bit()
-                    sleep(0.5)
             oe_pin.off()
+            sleep(0.5)
 
 
 def led_modes(modes_dict, modes_arguments):

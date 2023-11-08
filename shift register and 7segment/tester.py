@@ -1,17 +1,21 @@
 from gpiozero import DigitalOutputDevice, DigitalInputDevice, LED, output_devices
 from time import sleep
+import math
 import random
 from signal import pause
 
 
 ds_data = 26
 
-
+n = 1
 # Creating physical Pins with the GPIOZero Libary
-x = 0.1
+
 data_pin = DigitalOutputDevice(ds_data)
 while True:
+
+    y = math.sin(n)
     data_pin.value = 1
-    sleep(x)
+    sleep(y)
     data_pin.value = 0
-    sleep(x)
+    sleep(y)
+    n += 1

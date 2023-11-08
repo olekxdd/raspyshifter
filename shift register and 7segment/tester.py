@@ -1,4 +1,4 @@
-from gpiozero import DigitalOutputDevice, DigitalInputDevice, LED, output_devices, motor
+from gpiozero import DigitalOutputDevice, DigitalInputDevice, LED, output_devices
 from time import sleep
 import random
 from signal import pause

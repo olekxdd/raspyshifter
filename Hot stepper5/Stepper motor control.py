@@ -24,10 +24,10 @@ coil_B1 = DigitalOutputDevice(coil_b1_pin)
 coil_B2 = DigitalOutputDevice(coil_b2_pin)
 
 def stepSequence(w1, w2, w3, w4):
-    coil_A1.value(w1)
-    coil_A2.value(w2)
-    coil_B1.value(w3)
-    coil_B2.value(w4)
+    coil_A1.value = w1
+    coil_A2.value = w2
+    coil_B1.value = w3
+    coil_B2.value = w4
 
 for i in range(0, steps):
     for pattern in fullsteps:

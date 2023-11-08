@@ -29,6 +29,8 @@ def stepSequence(w1, w2, w3, w4):
     coil_B1.value = w3
     coil_B2.value = w4
 
+
+
 for i in range(0, steps):
     for pattern in fullsteps:
         stepSequence(pattern)

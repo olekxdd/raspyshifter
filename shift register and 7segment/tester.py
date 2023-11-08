@@ -13,7 +13,7 @@ n = 1
 data_pin = DigitalOutputDevice(ds_data)
 while True:
 
-    y = abs(1//n)
+    y = 1//n
     data_pin.value = 1
     sleep(y)
     data_pin.value = 0

@@ -8,18 +8,18 @@ ds_data = 26
 
 
 # Creating physical Pins with the GPIOZero Libary
-
+x = 0.1
 data_pin = DigitalOutputDevice(ds_data)
 
 data_pin.value = 1
-sleep(1)
+sleep(x)
 data_pin.value = 0
-sleep(1)
+sleep(x)
 data_pin.value = 1
-sleep(1)
+sleep(x)
 data_pin.value = 0
-sleep(1)
+sleep(x)
 data_pin.value = 1
-sleep(1)
+sleep(x)
 data_pin.value = 0
-sleep(1)
+sleep(x)

@@ -7,13 +7,13 @@ from signal import pause
 
 ds_data = 26
 
-n = 0.1
+n = 1
 # Creating physical Pins with the GPIOZero Libary
 
 data_pin = DigitalOutputDevice(ds_data)
 while True:
 
-    y = abs(math.sin(n**0.8))
+    y = abs(1//n)
     data_pin.value = 1
     sleep(y)
     data_pin.value = 0

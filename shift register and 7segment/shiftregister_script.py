@@ -193,7 +193,7 @@ def wave_drop(wave_drop_16bit):
                 else:
                     low_bit()
             oe_pin.off()
-            sleep(0.125)
+            sleep(0.01)
 
 
 def led_modes(modes_dict, modes_arguments):

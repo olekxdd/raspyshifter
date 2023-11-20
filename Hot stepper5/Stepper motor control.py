@@ -64,6 +64,7 @@ for i in range(ramp_start_step, ramp_end_step):
 
 
 # controls the duration of the sequence and feeds the pattern into the function
+
 def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
     for i in range(ramp_start_step, ramp_end_step):
         for pattern in stepmode:

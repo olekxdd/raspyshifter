@@ -43,15 +43,15 @@ def step_sequence(w1, w2, w3, w4):
 def motor_run_time(steps, stepmode):
     for i in range(0, steps):
         for pattern in stepmode:
-            step_sequence(pattern)
+            step_sequence(*pattern)
             sleep(delay)
+
 
 motor_run_time(steps_amount, fullsteps)
 
-max_steps_per_second = 1000 # 15,625 umdrehungen pro sekunde
+max_steps_per_second = 1000  # 15,625 umdrehungen pro sekunde
 max_speed = 1
 initial_speed = 0
-
 
 a = 0.001
 b = 0.001
@@ -59,10 +59,10 @@ c = 0.01
 
 rate_of_change = 1
 
-def accel_func(x):
 
+def accel_func(x):
     z = np.exp(-c * x)
     sig = 1 / ((a * 1) + b * z)
-    time_step = 1/sig
+    time_step = 1 / sig
 
     return time_step

@@ -15,10 +15,15 @@ halfsteps = ((0, 1, 0, 1), (0, 1, 0, 0), (0, 1, 1, 0), (0, 0, 1, 0),
 
 # declaring pins
 
-coil_a1_pin = 18  # color
-coil_a2_pin = 4  # color
-coil_b1_pin = 15  # color
-coil_b2_pin = 14  # color
+# coil_a1_pin = 18  # color
+# coil_a2_pin = 4  # color
+# coil_b1_pin = 15  # color
+# coil_b2_pin = 14  # color
+
+coil_a1_pin = 5  # color
+coil_a2_pin = 46  # color
+coil_b1_pin = 13  # color
+coil_b2_pin = 26  # color
 
 # Creating physical Pins with the GPIOZero Libary
 

@@ -1,8 +1,7 @@
-from gpiozero import OutputDevice, DigitalOutputDevice, DigitalInputDevice, LED, output_devices, motor,
+from gpiozero import OutputDevice, DigitalOutputDevice, DigitalInputDevice, LED, output_devices
 from time import sleep
 import numpy as np
 import random
-from signal import pause
 
 delay = 0.05
 steps_amount = 500
@@ -37,7 +36,7 @@ def step_sequence(w1, w2, w3, w4):
     coil_B2.value = w4
 
 
-def speed_control(ramp_up_steps, ):
+# def speed_control(ramp_up_steps, ):
 
 
 # controls the duration of the sequence and feeds the pattern into the function

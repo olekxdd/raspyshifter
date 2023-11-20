@@ -68,7 +68,7 @@ def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
     for i in range(ramp_start_step, ramp_end_step):
         for pattern in stepmode:
             step_sequence(*pattern)
-            sleep(accel_func(i, a, b, c))
+            sleep((1000 / (accel_func(i, a, b, c) * 64)))
 
 
 motor_run_time(ramp_start_step, ramp_end_step, fullsteps)

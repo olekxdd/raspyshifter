@@ -3,17 +3,20 @@ from time import sleep
 import numpy as np
 import random
 
-delay = 0.1
+delay = 0.05
 steps_amount = 500
 ramp_up_steps = 100
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 
-#fullsteps = ((0, 1, 0, 1), (0, 1, 1, 0), (1, 0, 1, 0), (1, 0, 0, 1))
+# fullsteps = ((0, 1, 0, 1), (0, 1, 1, 0), (1, 0, 1, 0), (1, 0, 0, 1))
 
-fullsteps = ((0, 0, 1, 1), (0, 1, 1, 0), (1, 1, 0, 0), (1, 0, 0, 1))
+fullsteps = (
+(0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
 
 halfsteps = ((0, 1, 0, 1), (0, 1, 0, 0), (0, 1, 1, 0), (0, 0, 1, 0),
              (1, 0, 1, 0), (1, 0, 0, 0), (1, 0, 0, 1), (0, 0, 0, 1))
+
+
 
 # declaring pins
 

@@ -3,9 +3,9 @@ from time import sleep
 import numpy as np
 import random
 
-delay = 0.015625 * 4
+# delay = 0.015625
 steps_amount = 500
-ramp_up_steps = 100
+
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 
 fullsteps = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
@@ -44,33 +44,32 @@ def step_sequence(w1, w2, w3, w4):
     coil_B2.value = w4
 
 
-# def speed_control(ramp_up_steps, ):
+# defining the accel and decell ramp with a sigmoid curve
+ramp_start_step = -100
+ramp_end_step = 1000
+
+a = 0.001
+b = 0.01
+c = 0.01
+
+
+def accel_func(x, a, b, c):
+    z = np.exp(-c * x)
+    sig = 1 / ((a * 1) + b * z)
+
+    return sig
+
+
+for i in range(ramp_start_step, ramp_end_step):
+    accel_func(i, a, b, c)
 
 
 # controls the duration of the sequence and feeds the pattern into the function
-def motor_run_time(steps, stepmode):
+def motor_run_time(steps, stepmode, ramp_start_step, ramp_end_step):
     for i in range(0, steps):
-        for pattern in stepmode:
+        for pattern, step_single in stepmode, range(ramp_start_step, ramp_end_step):
             step_sequence(*pattern)
-            sleep(delay)
+            sleep(accel_func(step_single, a, b, c))
 
 
-motor_run_time(steps_amount, fullsteps)
-
-max_steps_per_second = 1000  # 15,625 umdrehungen pro sekunde
-max_speed = 1
-initial_speed = 0
-
-a = 0.001
-b = 0.001
-c = 0.01
-
-rate_of_change = 1
-
-
-def accel_func(x):
-    z = np.exp(-c * x)
-    sig = 1 / ((a * 1) + b * z)
-    time_step = 1 / sig
-
-    return time_step
+motor_run_time(steps_amount, fullsteps, ramp_start_step, ramp_end_step)

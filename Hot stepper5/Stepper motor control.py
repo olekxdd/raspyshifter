@@ -12,6 +12,7 @@ fullsteps = ((0, 1, 0, 1), (0, 1, 1, 0), (1, 0, 1, 0), (1, 0, 0, 1))
 
 halfsteps = ((0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
 
+halfsteps2 = ((1,0,0,1), (1,0,0,0), (1,1,0,0), (0,1,0,0), (0,1,1,0), (0,0,1,0), (0,0,1,1), (0,0,0,1))
 
 
 
@@ -54,7 +55,7 @@ def motor_run_time(steps, stepmode):
             sleep(delay)
 
 
-motor_run_time(steps_amount, halfsteps)
+motor_run_time(steps_amount, halfsteps2)
 
 max_steps_per_second = 1000  # 15,625 umdrehungen pro sekunde
 max_speed = 1

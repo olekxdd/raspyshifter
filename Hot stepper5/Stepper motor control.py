@@ -8,13 +8,13 @@ steps_amount = 500
 ramp_up_steps = 100
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 
-fullsteps = ((0, 1, 0, 1), (0, 1, 1, 0), (1, 0, 1, 0), (1, 0, 0, 1))
+fullsteps = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
 
-halfsteps = ((0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
+halfsteps = (
+    (0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
 
-halfsteps2 = ((1,0,0,1), (1,0,0,0), (1,1,0,0), (0,1,0,0), (0,1,1,0), (0,0,1,0), (0,0,1,1), (0,0,0,1))
-
-
+halfsteps2 = (
+    (1, 0, 0, 1), (1, 0, 0, 0), (1, 1, 0, 0), (0, 1, 0, 0), (0, 1, 1, 0), (0, 0, 1, 0), (0, 0, 1, 1), (0, 0, 0, 1))
 
 # declaring pins
 
@@ -55,7 +55,7 @@ def motor_run_time(steps, stepmode):
             sleep(delay)
 
 
-motor_run_time(steps_amount, halfsteps2)
+motor_run_time(steps_amount, fullsteps)
 
 max_steps_per_second = 1000  # 15,625 umdrehungen pro sekunde
 max_speed = 1

@@ -3,9 +3,8 @@ from time import sleep
 import numpy as np
 import random
 
-# delay = 0.015625
+delay = 0.015625
 steps_amount = 500
-
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 
 fullsteps = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
@@ -65,11 +64,11 @@ for i in range(ramp_start_step, ramp_end_step):
 
 
 # controls the duration of the sequence and feeds the pattern into the function
-def motor_run_time(steps, stepmode, ramp_start_step, ramp_end_step):
-    for i in range(0, steps):
-        for pattern, step_single in stepmode, range(ramp_start_step, ramp_end_step):
+def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
+    for i in range(ramp_start_step, ramp_end_step):
+        for pattern in stepmode:
             step_sequence(*pattern)
-            sleep(accel_func(step_single, a, b, c))
+            sleep(accel_func(i, a, b, c))
 
 
-motor_run_time(steps_amount, fullsteps, ramp_start_step, ramp_end_step)
+motor_run_time(ramp_start_step, ramp_end_step, fullsteps)

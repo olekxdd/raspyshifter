@@ -10,7 +10,7 @@ ramp_up_steps = 100
 
 fullsteps = ((0, 1, 0, 1), (0, 1, 1, 0), (1, 0, 1, 0), (1, 0, 0, 1))
 
-#fullsteps = ((0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
+#halfsteps = ((0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
 
 halfsteps = ((0, 1, 0, 1), (0, 1, 0, 0), (0, 1, 1, 0), (0, 0, 1, 0),
              (1, 0, 1, 0), (1, 0, 0, 0), (1, 0, 0, 1), (0, 0, 0, 1))
@@ -56,7 +56,7 @@ def motor_run_time(steps, stepmode):
             sleep(delay)
 
 
-motor_run_time(steps_amount, fullsteps)
+motor_run_time(steps_amount, halfsteps)
 
 max_steps_per_second = 1000  # 15,625 umdrehungen pro sekunde
 max_speed = 1

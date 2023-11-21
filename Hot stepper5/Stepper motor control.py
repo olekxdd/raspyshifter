@@ -23,7 +23,7 @@ halfsteps2 = (
 # coil_b2_pin = 14  # color
 
 coil_a1_pin = 5  # color
-coil_a2_pin = 46  # color
+coil_a2_pin = 6  # color
 coil_b1_pin = 13  # color
 coil_b2_pin = 26  # color
 

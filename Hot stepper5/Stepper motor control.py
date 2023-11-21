@@ -80,4 +80,4 @@ def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
             sleep(delay)
 
 
-motor_run_time(ramp_start_step, ramp_end_step, halfsteps2)
+motor_run_time(ramp_start_step, ramp_end_step, halfsteps)

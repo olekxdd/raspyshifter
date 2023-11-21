@@ -65,12 +65,19 @@ for i in range(ramp_start_step, ramp_end_step):
 
 # controls the duration of the sequence and feeds the pattern into the function
 
+# def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
+#     for i in range(ramp_start_step, ramp_end_step):
+#         for pattern in stepmode:
+#             step_sequence(*pattern)
+#             sleep((1000 / (accel_func(i, a, b, c) * 64))+100)
+#             print((1000 / (accel_func(i, a, b, c) * 64))+100)
+
 def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
     for i in range(ramp_start_step, ramp_end_step):
         for pattern in stepmode:
             step_sequence(*pattern)
-            sleep((1000 / (accel_func(i, a, b, c) * 64))+100)
-            print((1000 / (accel_func(i, a, b, c) * 64))+100)
+            sleep(delay)
+            print()
 
 
 motor_run_time(ramp_start_step, ramp_end_step, fullsteps)

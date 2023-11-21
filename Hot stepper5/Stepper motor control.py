@@ -9,6 +9,7 @@ steps_amount = 500
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 
 fullsteps = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+fullsteps2 = ((1, 1, 0, 0), (0, 1, 1, 0), (0, 0, 1, 1), (1, 0, 0, 1))
 
 halfsteps = (
     (0, 1, 0, 0), (0, 1, 0, 1), (0, 0, 0, 1), (1, 0, 0, 1), (1, 0, 0, 0), (1, 0, 1, 0), (0, 0, 1, 0), (0, 1, 1, 0))
@@ -80,4 +81,4 @@ def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
             sleep(delay)
 
 
-motor_run_time(ramp_start_step, ramp_end_step, fullsteps)
+motor_run_time(ramp_start_step, ramp_end_step, fullsteps2)

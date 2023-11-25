@@ -3,8 +3,8 @@ from time import sleep
 import numpy as np
 import random
 
-delay = 0.015625
-# delay = 0.01
+#delay = 0.015625
+delay = 0.005
 steps_amount = 500
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 

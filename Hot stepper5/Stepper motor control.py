@@ -47,7 +47,7 @@ def step_sequence(w1, w2, w3, w4):
 
 # defining the accel and decell ramp with a sigmoid curve
 ramp_start_step = -100
-ramp_end_step = 1000
+ramp_end_step = 100000
 
 a = 0.001
 b = 0.01

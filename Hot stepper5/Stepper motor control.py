@@ -5,7 +5,7 @@ import random
 
 #delay = 0.015625
 delay = 0.001
-steps_amount = 9000
+steps_amount = 90000
 # stepping modes (w1, w2, w3, w4) w1 = coil one
 
 fullsteps = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))

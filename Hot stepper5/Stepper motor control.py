@@ -51,7 +51,7 @@ ramp_end_step = 1000
 
 a = 0.001
 b = 0.01
-c = 1.5
+c = 1
 
 
 def accel_func(x, a, b, c):

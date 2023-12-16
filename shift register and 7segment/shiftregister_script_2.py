@@ -37,13 +37,6 @@ wave_drop_16bit = ["0000000110000000", "0000011001100000", "0001100110011000", "
 
 sleep_length = float(input("input the sleep length: ")) # add this line to every function and give recommendation
 
-data_pin.on()
-sleep(1)
-data_pin.off()
-sleep(1)
-data_pin.on()
-
-
 def high_bit():
     data_pin.on()
     shcp_pin.on()
@@ -215,6 +208,6 @@ def wave_drop(wave_drop_16bit):
 #modes_arguments = {costum_led_pattern: " ", wave_led: " ", laser_led: " ", random_led_shifter: " ",
  #                  random_led_static: " ",
   #                 newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
-# newton_pendle(newton_pendle_16bit)
+newton_pendle(newton_pendle_16bit)
 
 #led_modes(modes_dict, modes_arguments)

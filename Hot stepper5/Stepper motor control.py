@@ -25,6 +25,9 @@ halfsteps2 = (
 # coil_b1_pin = 15  # color
 # coil_b2_pin = 14  # color
 
+coil_a1_pin = 27  # color
+coil_a2_pin = 22  # color
+
 coil_a1_pin = 5  # color
 coil_a2_pin = 6  # color
 coil_b1_pin = 13  # color
@@ -75,6 +78,15 @@ def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
             sleep((1000 / (accel_func(i, a, b, c) * 1000)))
             print((1000 / (accel_func(i, a, b, c) * 1000)))
 
+btn_cw.when_pressedd =
+btn_ccw
+
+def motor_run_time_btn_ctrl(btn_cw, btn_ccw, stepmode):
+    while btn_ccw.value(1) = 1 or btn_cw.value(1 = 1
+        for pattern in stepmode:
+            step_sequence(*pattern)
+            sleep((1000 / (accel_func(i, a, b, c) * 1000)))
+            print((1000 / (accel_func(i, a, b, c) * 1000)))
 # def motor_run_time(ramp_start_step, ramp_end_step, stepmode):
 #     for i in range(ramp_start_step, ramp_end_step):
 #         for pattern in stepmode:

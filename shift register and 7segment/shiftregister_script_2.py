@@ -208,6 +208,6 @@ def wave_drop(wave_drop_16bit):
 #modes_arguments = {costum_led_pattern: " ", wave_led: " ", laser_led: " ", random_led_shifter: " ",
  #                  random_led_static: " ",
   #                 newton_pendle: newton_pendle_16bit, wave_drop: wave_drop_16bit}
-newton_pendle(newton_pendle_16bit)
+#newton_pendle(newton_pendle_16bit)
 
-#led_modes(modes_dict, modes_arguments)
+led_modes(modes_dict, modes_arguments)

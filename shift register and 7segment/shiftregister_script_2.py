@@ -53,10 +53,6 @@ def high_bit():
     stcp_pin.off()
 
 
-data_pin.on()
-sleep(1)
-data_pin.off()
-
 def low_bit():
     shcp_pin.on()
     shcp_pin.off()
